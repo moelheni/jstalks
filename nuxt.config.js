@@ -7,11 +7,12 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'JStalks.rocks - Awesome Javascript talks',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: 'We search for you the best of the best of javascript talks.' },
+      { hid: 'keywords', name: 'keywords', content: 'javascript, js, talks, speakers' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -61,7 +62,7 @@ module.exports = {
     */
     extend(config, ctx) {
       // Run ESLint on save
-      
+
     }
   }
 }
