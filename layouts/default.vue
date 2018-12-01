@@ -1,24 +1,15 @@
 <template>
   <v-app dark>
-    <v-toolbar
-      :clipped-left="clipped"
-      fixed
-      app
+    <div
+      class="header"
     >
-      <v-toolbar-title v-text="title"/>
-
-    </v-toolbar>
+      {{ title }}
+    </div>
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
-      <span style="margin-left: 10px">jstalks.rocks &copy; 2087</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -36,8 +27,19 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'JStalks.rocks  🎸'
+        title: '>_ JStalks.rocks()  🎸'
       }
     }
   }
 </script>
+
+<style>
+  .header{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    font-family: monospace;
+  }
+</style>

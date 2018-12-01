@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="container">
       <div class="text-xs-center">
-        <div style="margin-bottom: 10px">Popular speakers</div>
+        <div class="section-title">>_ speakers.getMostPopular()</div>
         <v-chip v-for='speaker in speakers' @click="filterBySpeaker(speaker)" @input="removeSpeaker(speaker)" :close="currentSpeakers.includes(speaker)">
           <v-avatar>
             <img :src="speaker.image" alt="trevor">
@@ -99,13 +99,19 @@ export default {
   height: calc(100vh - 200px);
 }
 
-.v-chip {
-  cursor: pointer;
+.v-chip * {
+  cursor: pointer !important;
 }
 
 .speaker-conf{
   display: flex;
   align-items: center;
+}
+
+.section-title{
+    font-family: monospace;
+    font-size: 1.3em;
+    margin-bottom: 16px;
 }
 
 @media screen and (max-width: 720px) {
