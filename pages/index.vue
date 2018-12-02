@@ -97,6 +97,7 @@ export default {
     moment,
     filterBySpeaker (speaker) {
       this.loading = true
+      this.thatsAll = false
       this.$store.commit('setVideos', [])
       this.currentSpeakers = (speaker)
       axios.get(`https://jstalks-d774.restdb.io/rest/data?h={"$orderby": {"date": -1}}&q={"speaker": { "name": "${speaker.name}" }}` , {
@@ -111,10 +112,11 @@ export default {
       })
     },
     removeSpeaker (speaker) {
+      this.currentSpeakers = undefined
       this.loading = true
+      this.thatsAll = false
       this.$store.commit('setVideos', [])
       this.page = 1
-      this.currentSpeakers = undefined
       let videosCall = axios.get('https://jstalks-d774.restdb.io/rest/data?h={"$orderby": {"date": -1}}&max=4', {
         headers: {
           'x-apikey': '5c0319c8b83385326c1389f6'
@@ -122,6 +124,7 @@ export default {
       })
       videosCall.then((videos) => {
         this.$store.commit('setVideos', videos.data)
+        this.loading = false
       })
     },
     handleScroll (e) {
@@ -146,6 +149,9 @@ export default {
   },
   mounted () {
     window.addEventListener('scroll', this.handleScroll);
+  },
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 }
 </script>
