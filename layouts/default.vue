@@ -3,7 +3,7 @@
     <div
       class="header"
     >
-      <a href="/">{{ title }}</a>
+      <nuxt-link to="/">{{ title }}</nuxt-link>
     </div>
     <v-content>
       <v-container>

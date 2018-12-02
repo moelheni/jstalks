@@ -76,7 +76,7 @@ export default {
         'x-apikey': '5c0319c8b83385326c1389f6'
       }
     })
-    let VideosCall = axios.get('https://jstalks-d774.restdb.io/rest/data', {
+    let VideosCall = axios.get('https://jstalks-d774.restdb.io/rest/data?max=6', {
       headers: {
         'x-apikey': '5c0319c8b83385326c1389f6'
       }
@@ -84,7 +84,7 @@ export default {
 
     return Promise.all([videoCall, VideosCall]).then(([video, videos]) => {
       store.commit('setVideo', video.data)
-      store.commit('setVideos', videos.data.slice(0, 6))
+      store.commit('setVideos', videos.data
     })
   },
   data() {
