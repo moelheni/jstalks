@@ -84,7 +84,7 @@ export default {
 
     return Promise.all([videoCall, VideosCall]).then(([video, videos]) => {
       store.commit('setVideo', video.data)
-      store.commit('setVideos', videos.data
+      store.commit('setVideos', videos.data)
     })
   },
   data() {
