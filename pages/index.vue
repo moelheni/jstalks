@@ -26,11 +26,11 @@
               <div>
                 <span class="grey--text">{{moment(video.date).fromNow()}}</span><br>
                 <div class="speaker-conf">
-                  <v-chip @click="filterBySpeaker(video.speaker)" @input="removeSpeaker(video.speaker)" :close="currentSpeakers && currentSpeakers.name === video.speaker.name">
+                  <v-chip @click="filterBySpeaker(video.speaker[0])" @input="removeSpeaker(video.speaker[0])" :close="currentSpeakers && currentSpeakers.name === video.speaker[0].name">
                     <v-avatar>
-                      <img :src="video.speaker.image" alt="trevor">
+                      <img :src="video.speaker[0].image" alt="trevor">
                     </v-avatar>
-                    {{video.speaker.name}}
+                    {{video.speaker[0].name}}
                   </v-chip>
                   <span>at <strong>{{ video.conference }}</strong></span>
                 </div>
