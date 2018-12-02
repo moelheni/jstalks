@@ -30,7 +30,7 @@
     </v-card-title>
   </v-card>
 
-  <div class="similaire">
+  <div class="similaire container-videos">
     <div class="section-title">>_ video.getSimilaire()</div>
     <div class="similaire-holder">
       <nuxt-link :to="'/video/'+ video._id" v-for="video in videos">
