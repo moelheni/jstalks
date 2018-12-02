@@ -14,9 +14,9 @@
         <div class="speaker-conf">
           <v-chip>
             <v-avatar>
-              <img :src="video.speaker.image" alt="trevor">
+              <img :src="video.speaker[0].image" alt="trevor">
             </v-avatar>
-            {{video.speaker.name}}
+            {{video.speaker[0].name}}
           </v-chip>
           <span>at <strong>{{ video.conference }}</strong></span>
         </div>
@@ -41,9 +41,9 @@
               <div class="speaker-conf">
                 <v-chip>
                   <v-avatar>
-                    <img :src="video.speaker.image" alt="trevor">
+                    <img :src="video.speaker[0].image" alt="trevor">
                   </v-avatar>
-                  {{video.speaker.name}}
+                  {{video.speaker[0].name}}
                 </v-chip>
                 <span>at <strong>{{ video.conference }}</strong></span>
               </div>
