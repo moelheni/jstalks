@@ -43,7 +43,7 @@
     font-family: monospace;
   }
 
-  .header a{
+  .container-videos a,.header a{
     color: inherit;
     text-decoration: inherit;
   }

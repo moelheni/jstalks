@@ -11,7 +11,7 @@
         </v-chip>
       </div>
     </div>
-    <div class='container'>
+    <div class='container container-videos'>
       <div style="margin-bottom: 40px" v-for="video in videos">
         <nuxt-link :to="'/video/'+ video._id">
           <v-card>
