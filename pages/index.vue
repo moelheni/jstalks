@@ -111,6 +111,9 @@ export default {
       })
     },
     removeSpeaker (speaker) {
+      this.loading = true
+      this.$store.commit('setVideos', [])
+      this.page = 1
       this.currentSpeakers = undefined
       let videosCall = axios.get('https://jstalks-d774.restdb.io/rest/data?h={"$orderby": {"date": -1}}&max=4', {
         headers: {
@@ -118,7 +121,7 @@ export default {
         }
       })
       videosCall.then((videos) => {
-        store.commit('setVideos', videos.data)
+        this.$store.commit('setVideos', videos.data)
       })
     },
     handleScroll (e) {
