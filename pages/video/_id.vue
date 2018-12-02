@@ -70,6 +70,14 @@
 import moment from 'moment'
 import axios from 'axios'
 export default {
+  head () {
+    return {
+      title: this.video.title || this.video.speaker.name + " at " + this.video.conference,
+      meta: [
+        { hid: 'description', name: 'description', content: this.video.description },
+      ]
+    }
+  },
   fetch ({ store, params }) {
     let videoCall = axios.get('https://jstalks-d774.restdb.io/rest/data/' + params.id, {
       headers: {
