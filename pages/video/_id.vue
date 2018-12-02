@@ -76,7 +76,7 @@ export default {
         'x-apikey': '5c0319c8b83385326c1389f6'
       }
     })
-    let VideosCall = axios.get('https://jstalks-d774.restdb.io/rest/data?max=6', {
+    let VideosCall = axios.get('https://jstalks-d774.restdb.io/rest/data?max=6&h={"$orderby": {"date": 1}}', {
       headers: {
         'x-apikey': '5c0319c8b83385326c1389f6'
       }
