@@ -79,6 +79,16 @@
       margin-bottom: 16px;
   }
 
+  .loading, .thatsAll {
+    font-family: monospace;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    text-align: center;
+    align-items: center;
+  }
+
   @media screen and (max-width: 720px) {
     .header{
       font-size: 2em;
