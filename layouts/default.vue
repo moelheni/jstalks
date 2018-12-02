@@ -80,6 +80,12 @@
   }
 
   @media screen and (max-width: 720px) {
+    .header{
+      font-size: 2em;
+    }
+    .container-videos{
+      margin-top: 30px;
+    }
     .container, .v-content, .container iframe {
       padding: 0 !important;
       width: 100vw;
