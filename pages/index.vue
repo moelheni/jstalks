@@ -3,9 +3,9 @@
     <div class="container">
       <div class="text-xs-center">
         <div class="section-title">>_ speakers.getMostPopular()</div>
-        <v-chip v-for='speaker in speakers' @click="filterBySpeaker(speaker)" @input="removeSpeaker(speaker)" :close="currentSpeakers && currentSpeakers.name === speaker.name">
+        <v-chip v-for='speaker in speakers' :key="speaker.id" @click="filterBySpeaker(speaker)" @input="removeSpeaker(speaker)" :close="currentSpeakers && currentSpeakers.name === speaker.name">
           <v-avatar>
-            <img :src="speaker.image" alt="trevor">
+            <img :src="speaker.image" :alt="speaker.name">
           </v-avatar>
           {{speaker.name}} ({{speaker.videosCount}})
         </v-chip>
@@ -60,7 +60,7 @@ import moment from 'moment'
 import axios from 'axios'
 export default {
   fetch ({ store }) {
-    let speakersCall = axios.get('https://jstalks-d774.restdb.io/rest/speakers', {
+    let speakersCall = axios.get('https://jstalks-d774.restdb.io/rest/speakers?h={"$orderby": {"videosCount": -1}}&max=6', {
       headers: {
         'x-apikey': '5c0319c8b83385326c1389f6'
       }
@@ -86,8 +86,6 @@ export default {
   computed: {
     speakers () {
       return this.$store.state.speakers
-        .sort((a, b) => a.videosCount < b.videosCount ? 1 : -1)
-        .slice(0, 6)
     },
     videos () {
       return this.$store.state.videos
