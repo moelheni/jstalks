@@ -70,7 +70,14 @@ export default {
   },
   computed: {
     speakers () {
-      return this.$store.state.videos.map(video => video.speaker).filter((value, index, self) => self.map(e => e.name).indexOf(value.name) === index)
+      return this.$store.state.videos
+        .map(video => ({
+          ...video.speaker,
+          videosCount: this.$store.state.videos.filter(e => e.speaker.name === video.speaker.name).length
+        }))
+        .filter((value, index, self) => self.map(e => e.name).indexOf(value.name) === index)
+        .sort((a, b) => a.videosCount < b.videosCount ? 1 : -1)
+        .slice(0, 6)
     },
     videos () {
       return this.$store.state.videos.filter(video => !this.currentSpeakers.length || this.currentSpeakers.map(e => e.name).includes(video.speaker.name))
