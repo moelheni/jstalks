@@ -12,7 +12,9 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'We search for you the best of the best of javascript talks.' },
-      { hid: 'keywords', name: 'keywords', content: 'javascript, js, talks, speakers' }
+      { hid: 'keywords', name: 'keywords', content: 'javascript, js, talks, speakers' },
+      { hid: 'google-site-verification', name: 'google-site-verification', content: 'O_44Gp-UH-0Wl8ceM686flyYIiAjkjj4rN7YvHBXALM' }
+
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/guitar_1f3b8.png' },
