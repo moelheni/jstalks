@@ -54,7 +54,7 @@ import moment from 'moment'
 import axios from 'axios'
 export default {
   fetch ({ store }) {
-    return axios.get('https://jstalks-d774.restdb.io/rest/data?max=20&h={"$orderby": {"date": 1}}', {
+    return axios.get('https://jstalks-d774.restdb.io/rest/data?max=20&h={"$orderby": {"date": -1}}', {
       headers: {
         'x-apikey': '5c0319c8b83385326c1389f6'
       }
