@@ -61,7 +61,7 @@
 
   .container iframe {
     width: 80vw;
-    height: calc(100vh - 200px);
+    height: calc(80vw / 16 * 9);
   }
 
   .v-chip * {
@@ -89,6 +89,9 @@
     .container, .v-content, .container iframe {
       padding: 0 !important;
       width: 100vw;
+    }
+    .container iframe{
+      height: calc(100vw / 16 * 9);
     }
   }
 </style>
