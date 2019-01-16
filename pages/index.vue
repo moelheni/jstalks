@@ -47,8 +47,9 @@
         </nuxt-link>
       </div>
       <div class="loading" @click="loadMore" v-if="!thatsAll">
-        <button>_ videos.load()</button>>
+        <v-btn color="info">_ videos.load() <span v-if="loading">...</span></v-btn>
       </div>
+
       <div class="thatsAll  " v-if="thatsAll">
         😞 That's all for now
       </div>
