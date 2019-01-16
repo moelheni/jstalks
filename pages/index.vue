@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class='container container-videos'>
-      <div style="margin-bottom: 40px" v-for="video in videos">
+      <div style="margin-bottom: 40px" :key="video._id" v-for="video in videos">
         <nuxt-link :to="'/video/'+ video._id">
           <v-card>
             <iframe
@@ -24,6 +24,7 @@
               allowfullscreen></iframe>
               <v-card-title>
               <div>
+                <span class="grey--text" style="font-size: 1.2em">{{moment(video.title).fromNow()}}</span><br>
                 <span class="grey--text">{{moment(video.date).fromNow()}}</span><br>
                 <div class="speaker-conf">
                   <v-chip @click="filterBySpeaker(video.speaker[0])" @input="removeSpeaker(video.speaker[0])" :close="currentSpeakers && currentSpeakers.name === video.speaker[0].name">
@@ -38,15 +39,15 @@
                 <span>{{video.description}}</span>
                 <br><br>
                 <div class="tags">
-                   <v-chip v-for="tag in video.tags">#{{ tag }}</v-chip>
+                   <v-chip :key="video._id + tag" v-for="tag in video.tags">#{{ tag }}</v-chip>
                 </div>
               </div>
             </v-card-title>
           </v-card>
         </nuxt-link>
       </div>
-      <div class="loading" v-if="loading">
-        >_ videos.load() 🕒
+      <div class="loading" @click="loadMore" v-if="!thatsAll">
+        >_ videos.load()
       </div>
       <div class="thatsAll  " v-if="thatsAll">
         😞 That's all for now
@@ -125,23 +126,27 @@ export default {
         this.loading = false
       })
     },
+    loadMore () {
+      if (this.thatsAll) return;
+      this.page = this.page + 1
+      this.loading = true
+      axios.get('https://jstalks-d774.restdb.io/rest/data?h={"$orderby": {"date": -1}}&skip=' + (this.page - 1) * 4 + '&max=' + this.page * 2 , {
+        headers: {
+          'x-apikey': '5c0319c8b83385326c1389f6'
+        }
+      })
+        .then((res) => {
+          if (res.data.length === 0) this.thatsAll = true
+          this.$store.commit('addVideos', res.data)
+          this.loading = false
+      })
+    },
     handleScroll (e) {
       if (this.currentSpeakers) return;
       let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
       if (bottomOfWindow && !this.loading && !this.thatsAll) {
-        this.page = this.page + 1
-        this.loading = true
-        axios.get('https://jstalks-d774.restdb.io/rest/data?h={"$orderby": {"date": -1}}&skip=' + (this.page - 1) * 4 + '&max=' + this.page * 2 , {
-          headers: {
-            'x-apikey': '5c0319c8b83385326c1389f6'
-          }
-        })
-          .then((res) => {
-            if (res.data.length === 0) this.thatsAll = true
-            this.$store.commit('addVideos', res.data)
-            this.loading = false
-        })
+        this.loadMore()
       }
     }
   },
