@@ -25,7 +25,7 @@
         <span>{{video.description}}</span>
         <br><br>
         <div class="tags">
-           <v-chip v-for="tag in video.tags">#{{ tag }}</v-chip>
+           <v-chip :key="tag" v-for="tag in video.tags">#{{ tag }}</v-chip>
         </div>
       </div>
     </v-card-title>
@@ -34,7 +34,7 @@
   <div class="similaire container-videos">
     <div class="section-title">>_ video.getSimilaire()</div>
     <div class="similaire-holder">
-      <nuxt-link :to="'/video/'+ video._id" v-for="video in videos">
+      <nuxt-link :key="video._id" :to="'/video/'+ video._id" v-for="video in videos">
         <v-card>
           <v-card-title>
             <div>
@@ -55,7 +55,7 @@
               </span>
               <br><br>
               <div class="tags">
-                 <v-chip v-for="tag in video.tags">#{{ tag }}</v-chip>
+                <v-chip :key="video._id + tag" v-for="tag in video.tags">#{{ tag }}</v-chip>
               </div>
             </div>
           </v-card-title>
