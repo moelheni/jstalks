@@ -10,7 +10,7 @@
       allowfullscreen></iframe>
       <v-card-title>
       <div>
-        <span class="grey--text">{{moment(video.date).fromNow()}}</span><br>
+        <v-list-tile-title>{{ video.title }}</v-list-tile-title>
         <div class="speaker-conf">
           <v-chip>
             <v-avatar>
@@ -21,6 +21,7 @@
           <span>at <strong>{{ video.conference }}</strong></span>
         </div>
         <br>
+        <span class="grey--text">{{moment(video.date).fromNow()}}</span><br>
         <span>{{video.description}}</span>
         <br><br>
         <div class="tags">
@@ -49,7 +50,7 @@
               </div>
               <br>
               <span>
-                {{ video.description.substr(0, 100) }}
+                {{ video.title }}
                 <span v-if="video.description.length > 100">...</span>
               </span>
               <br><br>
