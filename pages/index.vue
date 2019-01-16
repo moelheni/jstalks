@@ -24,7 +24,7 @@
               allowfullscreen></iframe>
               <v-card-title>
               <div>
-                <span class="grey--text" style="font-size: 1.2em">{{moment(video.title).fromNow()}}</span><br>
+                <span class="grey--text" style="font-size: 1.2em">{{video.title}}</span><br>
                 <span class="grey--text">{{moment(video.date).fromNow()}}</span><br>
                 <div class="speaker-conf">
                   <v-chip @click="filterBySpeaker(video.speaker[0])" @input="removeSpeaker(video.speaker[0])" :close="currentSpeakers && currentSpeakers.name === video.speaker[0].name">
@@ -47,7 +47,7 @@
         </nuxt-link>
       </div>
       <div class="loading" @click="loadMore" v-if="!thatsAll">
-        >_ videos.load()
+        <button>_ videos.load()</button>>
       </div>
       <div class="thatsAll  " v-if="thatsAll">
         😞 That's all for now
