@@ -24,8 +24,7 @@
               allowfullscreen></iframe>
               <v-card-title>
               <div>
-                <span class="grey--text" style="font-size: 1.2em">{{video.title}}</span><br>
-                <span class="grey--text">{{moment(video.date).fromNow()}}</span><br>
+                <v-list-tile-title>{{ video.title }}</v-list-tile-title>
                 <div class="speaker-conf">
                   <v-chip @click="filterBySpeaker(video.speaker[0])" @input="removeSpeaker(video.speaker[0])" :close="currentSpeakers && currentSpeakers.name === video.speaker[0].name">
                     <v-avatar>
@@ -35,6 +34,7 @@
                   </v-chip>
                   <span>at <strong>{{ video.conference }}</strong></span>
                 </div>
+                <span class="grey--text">{{moment(video.date).fromNow()}}</span><br>
                 <br>
                 <span>{{video.description}}</span>
                 <br><br>
