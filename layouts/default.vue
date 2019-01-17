@@ -4,9 +4,13 @@
       class="header"
     >
       <nuxt-link to="/">{{ title }}</nuxt-link>
+      
     </div>
     <v-content>
       <v-container>
+        <div class="newsletter">
+          <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us20.list-manage.com","uuid":"8b9e0ecd8563dda69d0144366","lid":"3629dac8bc","uniqueMethods":true}) })</script>
+        </div>
         <nuxt />
       </v-container>
     </v-content>
@@ -27,7 +31,13 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: '>_ JStalks.rocks()  🎸'
+        title: '>_ JStalks.rocks()  🎸',
+        email: ''
+      }
+    },
+    methods: {
+      subscribe () {
+        console.log(this.email)
       }
     }
   }
@@ -37,10 +47,26 @@
   .header{
     height: 200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 4em;
     font-family: monospace;
+  }
+  .newsletter{
+    display: flex;
+    justify-content: center;
+  }
+
+  .newsletter .v-input__slot{
+      min-width: 350px;
+      max-width: 100%;
+      position: relative;
+      top: 5px;
+    }
+
+  .newsletter button{
+    height: 56px;
   }
 
   .container-videos a,.header a{
