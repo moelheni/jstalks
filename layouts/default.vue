@@ -8,9 +8,7 @@
     </div>
     <v-content>
       <v-container>
-        <div class="newsletter">
-          <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us20.list-manage.com","uuid":"8b9e0ecd8563dda69d0144366","lid":"3629dac8bc","uniqueMethods":true}) })</script>
-        </div>
+        <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript"></script>
         <nuxt />
       </v-container>
     </v-content>
@@ -39,6 +37,20 @@
       subscribe () {
         console.log(this.email)
       }
+    },
+    mounted () {
+      setTimeout(() => {
+        console.log(window.dojoRequire)
+        window.dojoRequire(["mojo/signup-forms/Loader"], function(L) {
+          console.log(L)
+          L.start({
+            "baseUrl":"mc.us20.list-manage.com",
+            "uuid":"8b9e0ecd8563dda69d0144366",
+            "lid":"3629dac8bc",
+            "uniqueMethods":true
+          })
+        })
+      }, 5000)
     }
   }
 </script>
