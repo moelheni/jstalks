@@ -1,5 +1,7 @@
 # jstalks
 
+https://jstalks.herokuapp.com/
+
 A Nuxt web application that shows Latest Javascript talks fro arround the world
 
 I am using a backend as a service you can change the endpoints to you personal backend
